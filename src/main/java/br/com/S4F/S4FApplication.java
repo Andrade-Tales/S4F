@@ -1,4 +1,4 @@
-package br.com.safe4woman.S4F;
+package br.com.S4F;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
