@@ -1,0 +1,48 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{base :: head}"></head>
+<body>
+<div th:replace="~{base :: logo}"></div>
+
+<div class="container">
+    <div th:replace="~{base :: titulo('Meus Contatos')}"></div>
+
+    <div class="card mt-3">
+        <form th:object="${requisicaoNovoContato}" class="card-body" action="/contato/novo" method="POST">
+            <div class="form-group">
+                <label for="nomeContato">Contato</label>
+                <input id="nomeContato" th:field="*{nomeContato}" th:errorClass="is-invalid" class="form-control"
+                       placeholder="nome do contato"/>
+                <small>Informa qual o nome do contato.</small>
+                <div class="invalid-feedback" th:errors="*{nomeContato}">
+                    Erros do nome do contato
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input id="telefone" th:field="*{telefone}" th:errorClass="is-invalid" class="form-control"
+                       placeholder="telefone"/>
+                <small>Coloque o telefone de contato aqui!</small>
+                <div class="invalid-feedback" th:errors="*{telefone}">
+                    Erros do telefone de contato!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" th:field="*{email}" th:errorClass="is-invalid" class="form-control"
+                       placeholder="email"/>
+                <small>Coloque o email de contato!</small>
+                <div class="invalid-feedback" th:errors="*{email}">
+                    Erros do email de contato!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" th:field="*{descricao}" class="form-control"
+                          placeholder="Adicione detalhes importantes para ajudar."></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
