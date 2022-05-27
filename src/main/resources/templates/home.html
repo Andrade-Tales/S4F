@@ -18,7 +18,7 @@
         </a>
     </nav>
 
-    <div class="card mb-3" th:each="contato : ${contato}">
+    <div class="card mb-3" th:each="contato : ${contatos}">
 
         <th:block th:switch="${contato.status.name()}">
             <div th:case="'AGUARDANDO'" class="card-header alert-warning" th:text="${contato.nomeContato}">Nome do
