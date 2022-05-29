@@ -1,9 +1,9 @@
 package br.com.safe4woman.S4F.controller;
 
 
-import br.com.safe4woman.S4F.model.ContatoDeSeguranca;
+import br.com.safe4woman.S4F.model.Contato;
 import br.com.safe4woman.S4F.model.StatusContato;
-import br.com.safe4woman.S4F.repository.ContatoDeSegurancaRepository;
+import br.com.safe4woman.S4F.repository.ContatoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,19 +19,19 @@ import java.util.List;
 public class HomeController {
 
     @Autowired
-    private ContatoDeSegurancaRepository repository;
+    private ContatoRepository repository;
 
     @GetMapping()
     public String home(Model model) {
-        List<ContatoDeSeguranca> contatoDeSegurancas = repository.findAll();
-        model.addAttribute("contato", contatoDeSegurancas);
+        List<Contato> contatos = repository.findAll();
+        model.addAttribute("contatos", contatos);
         return "home";
     }
 
     @GetMapping("/{status}")
     public String porStatus(@PathVariable("status") String status, Model model) {
-        List<ContatoDeSeguranca> contatoDeSegurancas = repository.findByStatus(StatusContato.AGUARDANDO.valueOf(status.toUpperCase()));
-        model.addAttribute("contatos", contatoDeSegurancas);
+        List<Contato> contatos = repository.findByStatus(StatusContato.valueOf(status.toUpperCase()));
+        model.addAttribute("contatos", contatos);
         model.addAttribute("status", status);
         return "home";
     }

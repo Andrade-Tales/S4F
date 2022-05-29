@@ -1,5 +1,6 @@
 package br.com.safe4woman.S4F;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,9 +11,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+import javax.sql.DataSource;
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private DataSource dataSource;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -22,18 +28,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin(form -> form
                         .loginPage("/login")
+                        .defaultSuccessUrl("/home", true)
                         .permitAll()
                 )
                 .logout(logout -> logout.logoutUrl("/logout"));
     }
+
+
+//CÓDIGO ORIGINAL
+//	@Override
+//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//		auth
+//			.jdbcAuthentication()
+//			.dataSource(dataSource)
+//			.passwordEncoder(encoder);
+//
+
 
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
         UserDetails user =
                 User.withDefaultPasswordEncoder()
-                        .username("joao")
-                        .password("joao")
+                        .username("tales")
+                        .password("tales")
                         .roles("ADM")
                         .build();
 

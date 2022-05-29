@@ -4,87 +4,53 @@
 <div th:replace="~{base :: logo}"></div>
 
 <div class="container">
-    <div th:replace="~{base :: titulo('Novo Contato')}"></div>
+    <div th:replace="~{base :: titulo('Meus Contatos')}"></div>
 
     <div class="card mt-3">
-        <form th:object="${requisicaoNovoContatoSeguranca}" class="card-body" action="/contato/novo" method="POST">
+        <form th:object="${requisicaoNovoContato}" class="card-body" action="/contato/novo" method="POST">
             <div class="form-group">
                 <label for="nomeContato">Contato</label>
-                <input id="nomeContato" th:field="*{nomeContato}" th:errorclass="is-invalid" class="form-control"
+                <input id="nomeContato" th:field="*{nomeContato}" th:errorClass="is-invalid" class="form-control"
                        placeholder="nome do contato"/>
-                <small>Informe qual o nome do contato.</small>
+                <small>Informe qual é o nome do contato.</small>
                 <div class="invalid-feedback" th:errors="*{nomeContato}">
-                    Erros do nome do contato
+                    Erro no nome do contato
                 </div>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" th:field="*{email}" th:errorclass="is-invalid" class="form-control"
-                       placeholder="email do contato"/>
-                <small>Coloque o email do contato de segurança aqui.</small>
-                <div class="invalid-feedback" th:errors="*{email}">
-                    Erros do email de contato
+                <label for="endereco">Endereço</label>
+                <input id="endereco" th:field="*{endereco}" th:errorClass="is-invalid" class="form-control"
+                       placeholder="endereco do conato"/>
+                <small>Coloque o endereço do contato aqui.</small>
+                <div class="invalid-feedback" th:errors="*{endereco}">
+                    Erro no endereço do contato
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="descricao">Descricao</label>
-                <textarea id="descricao" th:field="*{descricao}" class="form-control"
-                          placeholder="Adicione detalhes importantes para ajudar "></textarea>
-            </div>
-            <button class="btn btn-primary" type="submit">Cadastrar</button>
+                <div class="form-group">
+                    <label for="parentesco">Parentesco</label>
+                    <input id="parentesco" th:field="*{parentesco}" th:errorClass="is-invalid" class="form-control"
+                           placeholder="parentesco do conato"/>
+                    <small>Coloque o parentesco do contato aqui.</small>
+                    <div class="invalid-feedback" th:errors="*{parentesco}">
+                        Erro no parentesco do contato
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fotoContato">Foto</label>
+                    <input id="fotoContato" th:field="*{fotoContato}" th:errorClass="is-invalid" class="form-control"
+                           placeholder="foto do contato"/>
+                    <small>Coloque a foto do seu contato aqui.</small>
+                    <div class="invalid-feedback" th:errors="*{fotoContato}">
+                        Erro na foto do contato
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" th:field="*{descricao}" class="form-control"
+                              placeholder="Adicione detalhes importantes para ajudar."></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit">Cadastrar</button>
         </form>
     </div>
 </div>
 </body>
 </html>
-
-
-// CÓDIGO ANTIGO:
-<!--<html xmlns:th="http://www.w3.org/1999/xhtml">-->
-<!--<head th:replace="~{base :: head}"></head>-->
-<!--<body>-->
-<!--<div th:replace="~{base :: logo}"></div>-->
-
-<!--<div class="container">-->
-<!--    <div th:replace="~{base :: titulo('Meus Contatos')}"></div>-->
-
-<!--    <div class="card mt-3">-->
-<!--        <form th:object="${requisicaoNovoContato}" class="card-body" action="/contato/novo" method="POST">-->
-<!--            <div class="form-group">-->
-<!--                <label for="nomeContato">Contato</label>-->
-<!--                <input id="nomeContato" th:field="*{nomeContato}" th:errorClass="is-invalid" class="form-control"-->
-<!--                       placeholder="nome do contato"/>-->
-<!--                <small>Informa qual o nome do contato.</small>-->
-<!--                <div class="invalid-feedback" th:errors="*{nomeContato}">-->
-<!--                    Erros do nome do contato-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="form-group">-->
-<!--                <label for="telefone">Telefone</label>-->
-<!--                <input id="telefone" th:field="*{telefone}" th:errorClass="is-invalid" class="form-control"-->
-<!--                       placeholder="telefone"/>-->
-<!--                <small>Coloque o telefone de contato aqui!</small>-->
-<!--                <div class="invalid-feedback" th:errors="*{telefone}">-->
-<!--                    Erros do telefone de contato!-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="form-group">-->
-<!--                <label for="email">Email</label>-->
-<!--                <input id="email" th:field="*{email}" th:errorClass="is-invalid" class="form-control"-->
-<!--                       placeholder="email"/>-->
-<!--                <small>Coloque o email de contato!</small>-->
-<!--                <div class="invalid-feedback" th:errors="*{email}">-->
-<!--                    Erros do email de contato!-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="form-group">-->
-<!--                <label for="descricao">Descrição</label>-->
-<!--                <textarea id="descricao" th:field="*{descricao}" class="form-control"-->
-<!--                          placeholder="Adicione detalhes importantes para ajudar."></textarea>-->
-<!--            </div>-->
-<!--            <button class="btn btn-primary" type="submit">Cadastrar</button>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->

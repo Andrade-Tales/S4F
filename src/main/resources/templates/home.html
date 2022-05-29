@@ -9,10 +9,12 @@
     <nav class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mb-3">
         <div class="navbar-nav">
             <a th:classappend="${status} == null ? 'active'" class="nav-item nav-link" href="/home">Todos</a>
-            <a th:classappend="${status} == 'aguardando' ? 'active'" class="nav-item nav-link" href="/home/aguardando">Aguardando</a>
-            <a th:classappend="${status} == 'aprovado' ? 'active'" class="nav-item nav-link" href="/home/aprovado">Aprovado</a>
-            <a th:classappend="${status} == 'entregue' ? 'active'" class="nav-item nav-link" href="/home/entregue">Entregue</a>
+            <a th:classappend="${status} == 'acompanhando' ? 'active'" class="nav-item nav-link"
+               href="/home/acompanhando">Acompanhando</a>
+            <a th:classappend="${status} == 'chegada' ? 'active'" class="nav-item nav-link"
+               href="/home/chegada">chegada</a>
         </div>
+
         <a href="/contato/formulario">
             <button class="btn btn-outline-secondary my-2 my-sm-0">Novo</button>
         </a>
@@ -21,35 +23,53 @@
     <div class="card mb-3" th:each="contato : ${contatos}">
 
         <th:block th:switch="${contato.status.name()}">
-            <div th:case="'AGUARDANDO'" class="card-header alert-warning" th:text="${contato.nomeContato}">Nome do
-                contato
+            <div th:case="'ACOMPANHANDO'" class="card-header alert-warning" th:text="${contato.nomeContato}">Nome do
+                Contato
             </div>
-            <div th:case="'APROVADO'" class="card-header alert-success" th:text="${contato.nomeContato}">Nome do
-                contato
-            </div>
-            <div th:case="'ENTREGUE'" class="card-header alert-dark" th:text="${contato.nomeContato}">Nome do contato
+            <div th:case="'CHEGADA'" class="card-header alert-success" th:text="${contato.nomeContato}">Nome do
+                Contato
             </div>
         </th:block>
 
-        <div>Contato</div>
-        <div><input class="form-control" th:value="${contato.nomeContato}" value="nome do contato"/></div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-sm-8 mb-3">
+                    <div class="row ">
+                        <div class="col-md-5">Valor: <span th:if="${contato.valorNegociado} != null"
+                                                           th:text="${'R$ ' + #numbers.formatDecimal(contato.valorNegociado, 3, 'POINT', 2, 'COMMA')}">200,99</span>
+                        </div>
+                        <div class="col-md-6">Data da entrega: <span
+                                th:text="${#temporals.format(contato.dataDaEntrega, 'dd/MM/yyyy')}">10/02/2020</span>
+                        </div>
+                    </div>
+                    <!--                    <div class="row ">-->
+                    <!--                        <div class="col-md-5">Telefone: <span th:if="${contato.telefone} != null" th:text="${'R$ ' + #numbers.formatDecimal(contato.telefone, 3, 'POINT', 2, 'COMMA')}">200,99</span>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="col-md-6">Data de Nascimento: <span-->
+                    <!--                                th:text="${#temporals.format(contato.dataDaEntrega, 'dd/MM/yyyy')}">10/02/2020</span>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
 
-        <div>Email</div>
-        <div>
-            <textarea class="form-control" th:text="${contato.email}">email do contato</textarea>
-        </div>
-        <div>Telefone</div>
-        <div>
-            <textarea class="form-control" th:text="${contato.telefone}">telefone do contato</textarea>
-        </div>
-        <div>Descricao</div>
-        <div>
-            <textarea class="form-control" th:text="${contato.descricao}">descricao do contato</textarea>
-        </div>
+                    <div>Parentesco</div>
+                    <div><input class="form-control" th:value="${contato.parentesco}" value="parentesco do contato"/>
+                    </div>
 
+                    <div>Endereço</div>
+                    <div><input class="form-control" th:value="${contato.endereco}" value="endereco do contato"/></div>
+
+                    <div>Descrição</div>
+                    <div>
+                        <textarea class="form-control" th:text="${contato.descricao}">descrição do contato</textarea>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div>
+                        <img class="img-thumbnail" th:src="${contato.fotoContato}" src=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 </div>
 </body>
 </html>
