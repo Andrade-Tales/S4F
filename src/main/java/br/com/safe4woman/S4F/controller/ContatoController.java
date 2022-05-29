@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("contato")
-public class ContatoController {
+public class    ContatoController {
 
     @Autowired
     private ContatoRepository contatoRepository;

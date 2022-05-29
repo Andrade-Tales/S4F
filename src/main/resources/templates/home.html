@@ -12,7 +12,7 @@
             <a th:classappend="${status} == 'acompanhando' ? 'active'" class="nav-item nav-link"
                href="/home/acompanhando">Acompanhando</a>
             <a th:classappend="${status} == 'chegada' ? 'active'" class="nav-item nav-link"
-               href="/home/chegada">chegada</a>
+               href="/home/chegada">Chegada</a>
         </div>
 
         <a href="/contato/formulario">
@@ -50,14 +50,14 @@
                     <!--                        </div>-->
                     <!--                    </div>-->
 
-                    <div>Parentesco</div>
+                    <div>Parentesco:</div>
                     <div><input class="form-control" th:value="${contato.parentesco}" value="parentesco do contato"/>
                     </div>
 
-                    <div>Endereço</div>
+                    <div>Endereço:</div>
                     <div><input class="form-control" th:value="${contato.endereco}" value="endereco do contato"/></div>
 
-                    <div>Descrição</div>
+                    <div>Descrição:</div>
                     <div>
                         <textarea class="form-control" th:text="${contato.descricao}">descrição do contato</textarea>
                     </div>
