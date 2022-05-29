@@ -1,7 +1,5 @@
 package br.com.safe4woman.S4F.dto;
 
-
-
 import br.com.safe4woman.S4F.model.Contato;
 import br.com.safe4woman.S4F.model.StatusContato;
 

@@ -12,7 +12,7 @@
             <a th:classappend="${status} == 'acompanhando' ? 'active'" class="nav-item nav-link"
                href="/home/acompanhando">Acompanhando</a>
             <a th:classappend="${status} == 'chegada' ? 'active'" class="nav-item nav-link"
-               href="/home/chegada">Chegada</a>
+               href="/home/chegada">Quem acompanhou</a>
         </div>
 
         <a href="/contato/formulario">
@@ -35,17 +35,21 @@
             <div class="row">
                 <div class="col-12 col-sm-8 mb-3">
                     <div class="row ">
-                        <div class="col-md-5">Valor: <span th:if="${contato.valorNegociado} != null"
-                                                           th:text="${'R$ ' + #numbers.formatDecimal(contato.valorNegociado, 3, 'POINT', 2, 'COMMA')}">200,99</span>
+<!--                        <div class="col-md-5">Valor: <span th:if="${contato.valorNegociado} != null"-->
+<!--                                                           th:text="${'R$ ' + #numbers.formatDecimal(contato.valorNegociado, 3, 'POINT', 2, 'COMMA')}">200,99</span>-->
+<!--                        </div>-->
+
+                        <div class="col-md-5">Telefone: <span th:if="${contato.valorNegociado} != null"
+                                                           th:text="${contato.valorNegociado}"></span>
                         </div>
-                        <div class="col-md-6">Data da entrega: <span
+                        <div class="col-md-6">Data de acompanhamento: <span
                                 th:text="${#temporals.format(contato.dataDaEntrega, 'dd/MM/yyyy')}">10/02/2020</span>
                         </div>
                     </div>
                     <!--                    <div class="row ">-->
                     <!--                        <div class="col-md-5">Telefone: <span th:if="${contato.telefone} != null" th:text="${'R$ ' + #numbers.formatDecimal(contato.telefone, 3, 'POINT', 2, 'COMMA')}">200,99</span>-->
                     <!--                        </div>-->
-                    <!--                        <div class="col-md-6">Data de Nascimento: <span-->
+                    <!--                        <div class="col-md-6">Data do acompanhamento: <span-->
                     <!--                                th:text="${#temporals.format(contato.dataDaEntrega, 'dd/MM/yyyy')}">10/02/2020</span>-->
                     <!--                        </div>-->
                     <!--                    </div>-->
