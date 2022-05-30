@@ -1,8 +1,19 @@
-# Safe for Woman
-
-## Projeto realizado visando a segurança da mulher.
-## Desenvolvimento utilizando CRUD e guardando os dados no banco MySQL.
-## Ferramentas do projeto: Spring Boot, Java, HTML, Boostrap.
+## Safe for Woman
+<p align="">Projeto realizado visando a segurança da mulher.
 
 
-## Responsável Back-end e Front-end: Tales Andrade.
+
+ Desenvolvimento CRUD (CREATE READ UPDATE DELETE) com sistema de armazenamento de contatos guardando os dados no banco MySQL através 
+ da persistência do Spring Boot.
+
+ Utilizado sistema de encapsulamento, herança, POO.
+
+ Ferramentas do projeto: (Back-end): Spring Boot, Java. / (Front-end) HTML, Boostrap.
+
+ </p>
+
+ Responsável Back-end e Front-end: Tales Andrade.
+
+
+
+ 

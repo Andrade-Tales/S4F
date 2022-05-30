@@ -1,12 +1,20 @@
 package br.com.safe4woman.S4F.dto;
 
+ // PACOTE DTO: Data Transfer Object (DTO) ou simplesmente Transfer Object é um padrão de projetos
+ // bastante usado em Java para o transporte de dados entre diferentes componentes de um sistema,
+ // diferentes instâncias ou processos de um sistema distribuído ou diferentes sistemas via serialização.
+
 import br.com.safe4woman.S4F.model.Contato;
 import br.com.safe4woman.S4F.model.StatusContato;
 
 import javax.validation.constraints.NotBlank;
 
+// Classe RequisicaoNovoContato: Aqui contém os objetos que serão mostrados para o client com contrutor padrão.
+
 public class RequisicaoNovoContato {
 
+    // @NotBlank Anotação usada para que o espaço não fique em branco, uso obrigatório do tipo de dado específico
+    // no preenchimento dos dados para cadastro de um novo contato.
     @NotBlank(message = "O nome do contato é obrigatório!")
     private String nomeContato;
 
@@ -59,6 +67,7 @@ public class RequisicaoNovoContato {
         this.descricao = descricao;
     }
 
+    // SETANDO OS OBJETOS PARA REQUISIÇÃO DE CRIAÇÃO DE UM NOVO CONTATO COM SEUS RESPECTIVOS CAMPOS;
     public Contato toContato() {
         Contato contato = new Contato();
         contato.setDescricao(descricao);

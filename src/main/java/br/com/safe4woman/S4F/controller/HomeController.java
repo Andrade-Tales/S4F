@@ -21,13 +21,13 @@ public class HomeController {
     @Autowired
     private ContatoRepository repository;
 
+    // MÉTODO QUE BUSCA A LISTA DE CONTATOS SALVO DO BANCO;
     @GetMapping()
     public String home(Model model) {
         List<Contato> contatos = repository.findAll();
         model.addAttribute("contatos", contatos);
         return "home";
     }
-
     @GetMapping("/{status}")
     public String porStatus(@PathVariable("status") String status, Model model) {
         List<Contato> contatos = repository.findByStatus(StatusContato.valueOf(status.toUpperCase()));
@@ -36,6 +36,8 @@ public class HomeController {
         return "home";
     }
 
+    // Anotação @ExceptionHandler: Contém exceções tratadas pelo método anotado.
+    // Retorna o endpoint (/home) onde será direcionado para página home.
     @ExceptionHandler(IllegalArgumentException.class)
     public String onError() {
         return "redirect:/home";
