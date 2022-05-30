@@ -20,7 +20,7 @@
             <div class="form-group">
                 <label for="endereco">Endereço</label>
                 <input id="endereco" th:field="*{endereco}" th:errorClass="is-invalid" class="form-control"
-                       placeholder="endereco do conato"/>
+                       placeholder="endereco do contato"/>
                 <small>Coloque o endereço do contato aqui.</small>
                 <div class="invalid-feedback" th:errors="*{endereco}">
                     Erro no endereço do contato
@@ -28,7 +28,7 @@
                 <div class="form-group">
                     <label for="parentesco">Parentesco</label>
                     <input id="parentesco" th:field="*{parentesco}" th:errorClass="is-invalid" class="form-control"
-                           placeholder="parentesco do conato"/>
+                           placeholder="parentesco do contato"/>
                     <small>Coloque o parentesco do contato aqui.</small>
                     <div class="invalid-feedback" th:errors="*{parentesco}">
                         Erro no parentesco do contato
@@ -48,7 +48,7 @@
                     <textarea id="descricao" th:field="*{descricao}" class="form-control"
                               placeholder="Adicione detalhes importantes para ajudar."></textarea>
                 </div>
-                <button class="btn btn-primary" type="submit">Cadastrar</button>
+                <button class="btn btn-dark" type="submit">Cadastrar</button>
             </div>
         </form>
     </div>
